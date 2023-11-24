@@ -74,17 +74,21 @@ def app_run_eda() :
             if u_total.empty :
                 st.warning("해당 조건에 맞는 데이터가 없습니다.")
             else : 
-                st.success(f"{_u_date_start} ~ {_u_date_end} 까지의 1유로당 외환 환율 입니다.")
+                st.success(f"{_u_date_start} ~ {_u_date_end} 까지의 1유로당 외환 환율 데이터 입니다.")
                 st.dataframe(u_total)
 
+                uu = u_country.split()
+                uu2 = " ".join(uu[:-1])
+
+                st.success(f"{_u_date_start} ~ {_u_date_end} 까지의 \n\n1유로당 몇 {uu[-1]}인지 알려주는 차트 입니다.")
                 # 날짜 데이터를 NumPy datetime64 형식으로 변환
                 x = u_total["date"].values
                 y = u_total["exchange_rate"].values
                 x = np.array([np.datetime64(date) for date in x])
 
                 # 두 개의 subplot을 하나의 row에 나타내기 위해 plt.subplots(1, 2) 사용
-                fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-
+                fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+                
                 # 첫 번째 subplot
                 ax1 = axes[0]
                 months1 = MonthLocator()  # every month
@@ -92,7 +96,6 @@ def app_run_eda() :
                 ax1.xaxis.set_major_locator(months1)
                 monFmt1 = DateFormatter('%Y-%m')
                 ax1.xaxis.set_major_formatter(monFmt1)
-                ax1.set_title('First Half of Data')
 
                 # 두 번째 subplot
                 ax2 = axes[1]
@@ -101,10 +104,11 @@ def app_run_eda() :
                 ax2.xaxis.set_major_locator(months2)
                 monFmt2 = DateFormatter('%Y-%m')
                 ax2.xaxis.set_major_formatter(monFmt2)
-                ax2.set_title('Second Half of Data')
 
-                # x축 설정
-                plt.tight_layout()
+                fig.suptitle(f"{u_country} by Date")
+                fig.supxlabel("Date")
+
+                plt.tight_layout(rect=[0, 0.03, 1, 0.95])
                 st.pyplot(fig)
     
     st.markdown("\n")
@@ -126,7 +130,7 @@ def app_run_eda() :
     ex_max_date = datetime.strptime(ex_max_date, "%Y-%m-%d").date()
     ex_max_date = ex_max_date.strftime("%Y년 %m월 %d일 %A")
 
-    st.success(f"{cname_join}는(은)\n\n {ex_min_date}에 외환 환율 최소값 {ex_min} {cname[-1]}였고,\n\n{ex_max_date}에 최대값 {ex_max} {cname[-1]}였습니다.")
+    st.info(f"{cname_join}는(은)\n\n {ex_min_date}에 외환 환율 최소값 {ex_min} {cname[-1]}였고,\n\n{ex_max_date}에 최대값 {ex_max} {cname[-1]}였습니다.")
 
             
             
