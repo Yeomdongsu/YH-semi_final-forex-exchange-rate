@@ -16,21 +16,29 @@ def app_run_eda() :
     index_name = df[df.columns[2]].value_counts().index
 
     st.text_area("각 컬럼에 대한 설명",
-                f"{df.columns[0]} : 국가별 통화 코드를 의미합니다. \n\n{df.columns[1]} : 기준 통화 코드를 의미합니다. 전부 유로를 기준으로 합니다.\n\n{df.columns[2]} : 통화 이름을 의미합니다.\n\n{df.columns[3]} : 환율을 의미합니다.\n\n 날짜별 1유로당 해당 나라의 환율을 나타내는 데이터 입니다.", height=240)
+                f"{df.columns[0]} : 국가별 통화 코드를 의미합니다. \n\n{df.columns[1]} : 기준 통화 코드를 의미합니다. 전부 유로를 기준으로 합니다.\n\n{df.columns[2]} : 통화 이름을 의미합니다.\n\n{df.columns[3]} : 환율을 의미합니다.\n\n 날짜별 1유로당 해당 나라의 환율을 나타내는 데이터 입니다.", height=255)
 
     if st.checkbox("외환 환율 데이터 보기") :
         st.dataframe(df)
+
     st.markdown("\n")
 
     if st.checkbox("총 나라의 개수") :
         country = df["currency_name"].nunique()
         st.write(f"총 나라의 개수는 {country}개 입니다.")
+
     st.markdown("\n")
 
-    if st.checkbox("각 나라와 그 나라의 화폐 이름") :
-        country_name = df["currency_name"].unique()
-        for i in country_name :
-            st.write(i)
+    if st.checkbox("모든 나라의 통화 코드와 화폐 이름") :
+        array1 = df[df.columns[0]].unique()
+        array2 = df[df.columns[2]].unique()
+        currency_dict = dict(zip(array1, array2))
+
+        st.write("통화코드 , 나라와 화폐명")
+
+        for i,j in currency_dict.items() :
+            st.write(f"{i} , {j}")
+
     st.markdown("\n")
 
     if st.checkbox("기간별 해당 나라의 환율 검색") : 
