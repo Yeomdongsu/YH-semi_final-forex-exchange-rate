@@ -3,8 +3,10 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import matplotlib.pyplot as plt
-import seaborn as sb
-import altair as alt
+from matplotlib.dates import MonthLocator, DateFormatter
+
+# import seaborn as sb
+# import altair as alt
 
 def app_run_eda() :
     st.subheader("EDA 페이지")
@@ -75,41 +77,34 @@ def app_run_eda() :
                 st.success(f"{_u_date_start} ~ {_u_date_end} 까지의 1유로당 외환 환율 입니다.")
                 st.dataframe(u_total)
 
-                # half_idx = len(u_total) // 2
-                # u_total_part1 = u_total.iloc[:half_idx, :]
-                # u_total_part2 = u_total.iloc[half_idx:, :]
+                # 날짜 데이터를 NumPy datetime64 형식으로 변환
+                x = u_total["date"].values
+                y = u_total["exchange_rate"].values
+                x = np.array([np.datetime64(date) for date in x])
 
-                # # 차트를 나란히 표시하기 위해 컬럼을 생성
-                # col1, col2 = st.columns(2)
+                # 두 개의 subplot을 하나의 row에 나타내기 위해 plt.subplots(1, 2) 사용
+                fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
-                # # 첫 번째 차트
-                # with col1:
-                #     st.subheader('Part 1')
-                #     chart_part1 = alt.Chart(u_total_part1).mark_line().encode(
-                #         x='date:T',
-                #         y='exchange_rate:Q',
-                #         color='currency_name:N'
-                #     ).properties(
-                #         width=500,
-                #         height=300
-                #     )
-                #     st.altair_chart(chart_part1)
+                # 첫 번째 subplot
+                ax1 = axes[0]
+                months1 = MonthLocator()  # every month
+                ax1.plot_date(x[:len(x)//2], y[:len(x)//2], '-o')
+                ax1.xaxis.set_major_locator(months1)
+                monFmt1 = DateFormatter('%Y-%m')
+                ax1.xaxis.set_major_formatter(monFmt1)
+                ax1.set_title('First Half of Data')
 
-                # # 두 번째 차트
-                # with col2:
-                #     st.subheader('Part 2')
-                #     chart_part2 = alt.Chart(u_total_part2).mark_line().encode(
-                #         x='date:T',
-                #         y='exchange_rate:Q',
-                #         color='currency_name:N'
-                #     ).properties(
-                #         width=500,
-                #         height=300
-                #     )
-                #     st.altair_chart(chart_part2)
+                # 두 번째 subplot
+                ax2 = axes[1]
+                months2 = MonthLocator()  # every month
+                ax2.plot_date(x[len(x)//2:], y[len(x)//2:], '-o', color='green')
+                ax2.xaxis.set_major_locator(months2)
+                monFmt2 = DateFormatter('%Y-%m')
+                ax2.xaxis.set_major_formatter(monFmt2)
+                ax2.set_title('Second Half of Data')
 
-                fig = plt.figure()
-                sb.lineplot(data=u_total, x='date', y='exchange_rate')
+                # x축 설정
+                plt.tight_layout()
                 st.pyplot(fig)
     
     st.markdown("\n")
