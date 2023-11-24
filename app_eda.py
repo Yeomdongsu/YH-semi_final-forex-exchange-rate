@@ -5,12 +5,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.dates import MonthLocator, DateFormatter
 
-# import seaborn as sb
-# import altair as alt
-
 def app_run_eda() :
-    st.subheader("EDA 페이지")
-
     st.info("데이터를 분석하고 차트화 시키는 페이지 입니다.\n\n")
 
     df = pd.read_csv("./data/daily_forex_rates.csv")

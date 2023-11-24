@@ -1,7 +1,7 @@
 import streamlit as st
 
 def app_run_home() :
-    st.title("2004년 이후 각 나라별 환율 보기")
+    st.header("2004년 이후 각 나라별 환율 보기")
     st.markdown("\n")
     st.markdown("\n")
     st.info("기준이 되는 화폐는 유로(EUR)로써, 1유로당 해당 나라 환율을 알려줍니다.\n\n"
