@@ -74,13 +74,15 @@ def app_run_eda() :
 
                 uu = u_country.split()
 
-                st.success(f"{_u_date_start} ~ {_u_date_end} 까지의 \n\n1유로당 몇 {uu[-1]}인지 알려주는 차트 입니다.")
+                st.success(f"{_u_date_start} ~ {_u_date_end} 까지의 \n\n1유로당 몇 {uu[-1]}인지 알려주는 차트이며 차트당 6개월을 나타냅니다.")
 
                 def plot_chart(start_idx , end_idx) :
-                    fig = plt.figure(figsize=(12,5))
-                    plt.plot(u_total["date"].iloc[start_idx : end_idx] ,u_total["exchange_rate"].iloc[start_idx : end_idx])
+                    fig = plt.figure(figsize=(12,6))
+                    plt.plot(u_total["date"].iloc[start_idx : end_idx] ,u_total["exchange_rate"].iloc[start_idx : end_idx], color="green", linewidth=1.7)
                     plt.gca().xaxis.set_major_locator(months)
                     plt.gca().xaxis.set_major_formatter(monFmt)
+                    
+                    plt.grid(True)
                     plt.title("Exchange_rate by Date")
                     plt.xlabel("Date")
                     plt.ylabel("Exchange_rate")
