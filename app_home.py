@@ -9,4 +9,5 @@ def app_run_home() :
             "")
     st.markdown("\n")
     st.markdown("\n")
-    st.image("https://media.istockphoto.com/id/478942552/ko/%EC%82%AC%EC%A7%84/%ED%99%98%EC%9C%A8.jpg?s=612x612&w=0&k=20&c=OwtYxRDtHfeakcW0jXNk58djHpbvFcYTLHSWUB2AA_k=", use_column_width=True)
+#     st.image("https://media.istockphoto.com/id/478942552/ko/%EC%82%AC%EC%A7%84/%ED%99%98%EC%9C%A8.jpg?s=612x612&w=0&k=20&c=OwtYxRDtHfeakcW0jXNk58djHpbvFcYTLHSWUB2AA_k=", use_column_width=True)
+    st.image("https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140205_142%2Fsymspy_13915732913996sOFU_PNG%2Fone-34323_640.png&type=sc960_832", use_column_width=True)

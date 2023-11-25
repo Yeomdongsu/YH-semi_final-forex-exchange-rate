@@ -73,54 +73,70 @@ def app_run_eda() :
                 st.dataframe(u_total)
 
                 uu = u_country.split()
-                uu2 = " ".join(uu[:-1])
 
                 st.success(f"{_u_date_start} ~ {_u_date_end} 까지의 \n\n1유로당 몇 {uu[-1]}인지 알려주는 차트 입니다.")
-                # 날짜 데이터를 NumPy datetime64 형식으로 변환
-                x = u_total["date"].values
-                y = u_total["exchange_rate"].values
-                x = np.array([np.datetime64(date) for date in x])
 
-                # 두 개의 subplot을 하나의 row에 나타내기 위해 plt.subplots(1, 2) 사용
-                fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+                def plot_chart(start_idx , end_idx) :
+                    fig = plt.figure(figsize=(12,5))
+                    plt.plot(u_total["date"].iloc[start_idx : end_idx] ,u_total["exchange_rate"].iloc[start_idx : end_idx])
+                    plt.gca().xaxis.set_major_locator(months)
+                    plt.gca().xaxis.set_major_formatter(monFmt)
+                    plt.title("Exchange_rate by Date")
+                    plt.xlabel("Date")
+                    plt.ylabel("Exchange_rate")
+                    return fig
+
+                n = len(u_total["date"]) 
+
+                u_total["date"] = pd.to_datetime(u_total["date"]) # datetime 타입으로 변환
+                months = MonthLocator() # 1달씩 나오게
+                monFmt = DateFormatter('%Y-%m') # 표시 형식 포맷
+
+                if n % 130 == 0 : 
+                    count = n // 130 
+                    
+                    if count == 1 :
+                        fig = plot_chart(0, n)
+                        st.pyplot(fig)
+                    else :
+                        for i in range(count) : 
+                            start_idx = i * 130
+                            end_idx = (i+1) * 130
+                            fig = plot_chart(start_idx, end_idx)
+                            st.pyplot(fig)
+                else :
+                    count = (n // 130) + 1
+                        
+                    if count == 1 : 
+                        fig = plot_chart(0, n)
+                        st.pyplot(fig)
+                    else :
+                        for i in range(count-1) : 
+                            start_idx = i * 130
+                            end_idx = (i+1) * 130
+                            fig = plot_chart(start_idx, end_idx)
+                            st.pyplot(fig)
                 
-                # 첫 번째 subplot
-                ax1 = axes[0]
-                months1 = MonthLocator()  # every month
-                ax1.plot_date(x[:len(x)//2], y[:len(x)//2], '-o')
-                ax1.xaxis.set_major_locator(months1)
-                monFmt1 = DateFormatter('%Y-%m')
-                ax1.xaxis.set_major_formatter(monFmt1)
-
-                # 두 번째 subplot
-                ax2 = axes[1]
-                months2 = MonthLocator()  # every month
-                ax2.plot_date(x[len(x)//2:], y[len(x)//2:], '-o', color='green')
-                ax2.xaxis.set_major_locator(months2)
-                monFmt2 = DateFormatter('%Y-%m')
-                ax2.xaxis.set_major_formatter(monFmt2)
-
-                fig.suptitle(f"{u_country} by Date")
-                fig.supxlabel("Date")
-
-                plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-                st.pyplot(fig)
+                        start_idx = (count-1) * 130
+                        end_idx = n
+                        fig = plot_chart(start_idx, n)
+                        st.pyplot(fig)
     
     st.markdown("\n")
     
     mm_country = st.selectbox("2004년부터 어제까지 외환 환율의 최소값과 최대값, 그에 해당하는 날짜를 알고싶은 currency_name을 골라주세요", index_name)  
 
-    cname = mm_country.split()
-    cname_join = " ".join(cname[:-1])
+    cname = mm_country.split() # cname[-1] = Won
+    cname_join = " ".join(cname[:-1]) # cname_join = "South Korean"
 
-    ex_min = df.loc[df[df.columns[2]] == mm_country].min().values[3:][0]
-    ex_min_date = df.loc[df[df.columns[2]] == mm_country].min().values[3:][1]
+    ex_min = df[df[df.columns[2]] == mm_country].nsmallest(1, df.columns[3]).iloc[0,-2]
+    ex_min_date = df[df[df.columns[2]] == mm_country].nsmallest(1, df.columns[3]).iloc[0,-1]
 
     ex_min_date = datetime.strptime(ex_min_date, "%Y-%m-%d").date()
     ex_min_date = ex_min_date.strftime("%Y년 %m월 %d일 %A")
 
-    ex_max = df.loc[df[df.columns[2]] == mm_country].max().values[3:][0]
-    ex_max_date = df.loc[df[df.columns[2]] == mm_country].max().values[3:][1]
+    ex_max = df[df[df.columns[2]] == mm_country].nlargest(1, df.columns[3]).iloc[0,-2]
+    ex_max_date = df[df[df.columns[2]] == mm_country].nlargest(1, df.columns[3]).iloc[0,-1]
 
     ex_max_date = datetime.strptime(ex_max_date, "%Y-%m-%d").date()
     ex_max_date = ex_max_date.strftime("%Y년 %m월 %d일 %A")
