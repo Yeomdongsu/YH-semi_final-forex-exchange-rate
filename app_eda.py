@@ -43,11 +43,11 @@ def app_run_eda() :
         u_country = st.selectbox("알고싶은 currency_name을 골라주세요", index_name)
 
         st.info(f"{u_country}이(가) 입력되었습니다.")
-                
+        
         u_date_start = st.date_input("시작 날짜를 지정하세요.")
-        _u_date_start = u_date_start.strftime("%Y년 %m월 %d일 %A")
-
         u_date_end = st.date_input("끝 날짜를 지정하세요.")
+
+        _u_date_start = u_date_start.strftime("%Y년 %m월 %d일 %A")
         _u_date_end = u_date_end.strftime("%Y년 %m월 %d일 %A")
 
         if u_date_start > u_date_end :
@@ -81,7 +81,7 @@ def app_run_eda() :
                     plt.plot(u_total["date"].iloc[start_idx : end_idx] ,u_total["exchange_rate"].iloc[start_idx : end_idx], color="green", linewidth=1.7)
                     plt.gca().xaxis.set_major_locator(months)
                     plt.gca().xaxis.set_major_formatter(monFmt)
-                    
+
                     plt.grid(True)
                     plt.title("Exchange_rate by Date")
                     plt.xlabel("Date")
