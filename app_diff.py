@@ -112,7 +112,7 @@ def app_run_diff() :
     st.markdown("\n")
     st.markdown("\n")
     if st.checkbox("클릭") :
-        yt = YouTube("https://www.youtube.com/shorts/qBcD_04CgPo?feature=share") 
+        yt = YouTube("https://youtu.be/-GsrYvZoAdA") 
         video_stream = yt.streams.get_highest_resolution()
         youtube = video_stream.url
 

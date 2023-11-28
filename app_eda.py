@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.dates import MonthLocator, DateFormatter
@@ -13,16 +12,30 @@ def app_run_eda() :
     index_name = df[df.columns[2]].value_counts().index
 
     st.text_area("각 컬럼에 대한 설명",
-                f"{df.columns[0]} : 국가별 통화 코드를 의미합니다. \n\n{df.columns[1]} : 기준 통화 코드를 의미합니다. 전부 유로를 기준으로 합니다.\n\n{df.columns[2]} : 통화 이름을 의미합니다.\n\n{df.columns[3]} : 환율을 의미합니다.\n\n 날짜별 1유로당 해당 나라의 환율을 나타내는 데이터 입니다.", height=255)
+                f"{df.columns[0]} : 국가별 통화 코드를 의미합니다. \n\n{df.columns[1]} : 기준 통화 코드를 의미합니다. 이 데이터에선 유로를 기준으로 합니다.\n\n{df.columns[2]} : 나라이름과 통화 이름을 의미합니다.\n\n{df.columns[3]} : 환율을 의미합니다.\n\n 날짜별 1유로당 해당 나라의 환율을 나타내는 데이터 입니다.", height=255)
 
     if st.checkbox("외환 환율 데이터 보기") :
         st.dataframe(df)
 
     st.markdown("\n")
 
-    if st.checkbox("총 나라의 개수") :
-        country = df["currency_name"].nunique()
-        st.write(f"총 나라의 개수는 {country}개 입니다.")
+    in_shape = df.shape
+    in_n_count = dict(zip(df.isna().sum().index, df.isna().sum().values))
+    in_country = df[df.columns[2]].nunique()
+    in_date = df[df.columns[-1]].nunique()
+
+    if st.checkbox("데이터 기본 정보 보기") :
+        if st.button("전체 행과 열의 개수") :
+            st.info(f"데이터 전체 행의 개수는 {in_shape[0]}개 , 열의 개수는 {in_shape[1]}개 입니다.")
+        if st.button("NaN 여부") :
+            st.write("컬럼명 : NaN 개수")
+            for i,j in in_n_count.items() :
+                st.write(f"{i} : {j}")
+            st.info("전체 데이터의 NaN 개수는 0개 입니다.")        
+        if st.button("총 나라의 개수") :        
+            st.info(f"총 나라의 개수는 {in_country}개 입니다.")
+        if st.button("날짜의 개수") :
+            st.info(f"주말과 공휴일을 제외한 날짜의 개수는 {in_date}개 입니다.")    
 
     st.markdown("\n")
 
