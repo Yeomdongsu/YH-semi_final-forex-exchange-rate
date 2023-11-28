@@ -27,6 +27,14 @@ def main() :
             }
         )
 
+    st.markdown("""
+    <style>
+        [data-testid=stSidebar] {
+            background-color: #522727;
+        }   
+    </style>
+    """, unsafe_allow_html=True)
+
     if choose == menu[0] :
         app_run_home()
     elif choose == menu[1] :
