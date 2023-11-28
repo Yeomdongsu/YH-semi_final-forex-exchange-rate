@@ -1,6 +1,7 @@
 import streamlit as st
 
 def app_run_home() :
+    
     st.header("2004년 이후 각 나라별 환율 보기")
     st.markdown("\n")
     st.markdown("\n")

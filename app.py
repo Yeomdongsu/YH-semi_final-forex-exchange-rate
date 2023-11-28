@@ -3,8 +3,11 @@ from app_home import app_run_home
 from app_eda import app_run_eda
 from app_diff import app_run_diff 
 from streamlit_option_menu import option_menu
+from streamlit_extras.let_it_rain import rain
 
 def main() :
+    rain(emoji="💸", font_size=45, falling_speed=20, animation_length="infinite",)
+
     menu = ["프로젝트 소개","EDA (Exploratory Data Analysis)","다양한 통화의 환율을 비교 해보기"]
 
     with st.sidebar:
