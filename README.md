@@ -1,11 +1,11 @@
+# Streamlit Tutorials
+
 <p align="center">📚 Skills</p>
 <p align="center">
     <img src="https://img.shields.io/badge/Python-3776AB?style=plastic&logo=Python&logoColor=white"/>
     <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=plastic&logo=Streamlit&logoColor=white"/>
     <img src="https://img.shields.io/badge/Jupyter-F37626?style=plastic&logo=jupyter&logoColor=white"/>    
 </p>
-
-# Streamlit Tutorials
 
 #### Install
 
