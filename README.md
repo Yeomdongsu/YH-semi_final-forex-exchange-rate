@@ -37,7 +37,7 @@ pip install yfinance fbprophet plotly
 ```
 
 <p align="center">
-    <img src='asset/finance.gif?raw=1' width = '900' >
+    <img src='file:///C:/Users/USER/Videos/Captures/[Github]%20readme%EC%97%90%20%ED%99%94%EB%A9%B4%20%EB%85%B9%ED%99%94%20%EC%98%AC%EB%A6%AC%EA%B8%B0%20-%20Chrome%202023-12-02%2011-51-51.mp4' width = '900' >
 </p>
 
 ## EDA (Exploratory Data Analysis)
