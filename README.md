@@ -42,7 +42,7 @@ from matplotlib.dates import MonthLocator, DateFormatter
 ```
 
 <p>
-    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/dd99384b-27e7-4573-a9f9-e9c1c182c16e', height='600'>
+    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/dd99384b-27e7-4573-a9f9-e9c1c182c16e', width='800', height='700'>
 </p>
 
 ## - 💸 Compare exchange rates for different currencies
@@ -53,6 +53,6 @@ import pandas as pd
 from datetime import datetime
 ```
 
-<p align='center'>
-    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/26491a9c-c8b4-4e5b-adf6-5c37c10a1276'>
+<p>
+    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/26491a9c-c8b4-4e5b-adf6-5c37c10a1276', width='800', height='700'>
 </p>
