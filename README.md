@@ -28,6 +28,7 @@ import streamlit as st
 ```
 
 <p><img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/65a011a4-71e4-464f-9f9b-80777f7f9828', width='800'></p>
+<p><img src= 'https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/9136e168-3f1d-41cb-8b99-1f3a1815dffc', width='800'></p>
 
 ## - 💸 EDA (Exploratory Data Analysis) 
 
