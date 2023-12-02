@@ -9,13 +9,18 @@
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](http://13.124.75.153:8501/)
 
-#### Install
+## Dataset
+
+The data has been collected from kaggle Forex Exchange Rates Since 2004. More about the dataset are in this [link](https://www.kaggle.com/datasets/asaniczka/forex-exchange-rate-since-2004-updated-daily)
+</br></br>
+
+## Install
 
 ```
 pip install streamlit
 ```
 
-#### Running Locally
+## Running Locally
 
 ```
 git clone https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate.git 
