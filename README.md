@@ -27,9 +27,7 @@ streamlit run app.py
 import streamlit as st
 ```
 
-<p>
-    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/65a011a4-71e4-464f-9f9b-80777f7f9828', width='800'>
-</p>
+<p><img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/65a011a4-71e4-464f-9f9b-80777f7f9828', width='800'></p>
 
 ## - 💸 EDA (Exploratory Data Analysis) 
 
@@ -41,9 +39,7 @@ import matplotlib.pyplot as plt
 from matplotlib.dates import MonthLocator, DateFormatter
 ```
 
-<p>
-    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/dd99384b-27e7-4573-a9f9-e9c1c182c16e', width='800', height='700'>
-</p>
+<p><img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/dd99384b-27e7-4573-a9f9-e9c1c182c16e', width='800'></p>
 
 ## - 💸 Compare exchange rates for different currencies
 
@@ -53,6 +49,4 @@ import pandas as pd
 from datetime import datetime
 ```
 
-<p>
-    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/26491a9c-c8b4-4e5b-adf6-5c37c10a1276', width='800', height='700'>
-</p>
+<p><img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/26491a9c-c8b4-4e5b-adf6-5c37c10a1276', width='800'></p>
