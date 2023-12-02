@@ -8,7 +8,7 @@
 </p>
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](13.124.75.153:8501)
-
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](13.124.75.153:8501)
 #### Install
 
 ```
