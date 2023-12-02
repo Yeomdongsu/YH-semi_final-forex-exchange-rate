@@ -18,10 +18,10 @@ pip install streamlit
 #### Running Locally
 
 ```
-git clone 
-cd [directory]
-streamlit run app.py 
+git clone https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate.git 
+cd YH-semi_final-forex-exchange-rate
 
+streamlit run app.py 
 ```
 
 ## - 💸 Home 
