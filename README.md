@@ -15,12 +15,13 @@
 pip install streamlit
 ```
 
-#### Run
+#### Running Locally
 
 ```
+git clone 
 cd [directory]
 streamlit run app.py 
-# http://0.0.0.0:[your port]
+
 ```
 
 ## - 💸 Home 
