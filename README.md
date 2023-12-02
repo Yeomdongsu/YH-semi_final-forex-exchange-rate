@@ -1,8 +1,4 @@
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](13.124.75.153:8501)
-
 # Streamlit Tutorials
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](13.124.75.153:8501)
 
 <p align="center">📚 Skills</p>
 <p align="center">
@@ -11,7 +7,7 @@
     <img src="https://img.shields.io/badge/Jupyter-F37626?style=plastic&logo=jupyter&logoColor=white"/>    
 </p>
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](13.124.75.153:8501)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](http://13.124.75.153:8501/)
 
 #### Install
 
