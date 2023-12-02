@@ -37,7 +37,7 @@ pip install yfinance fbprophet plotly
 ```
 
 <p align="center">
-    <img src='' width = '900' >
+    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/65a011a4-71e4-464f-9f9b-80777f7f9828'>
 </p>
 
 ## EDA (Exploratory Data Analysis)
@@ -50,7 +50,7 @@ pip install bokeh ftfy regex tqdm gdown
 ```
 
 <p align="center">
-    <img src='asset/cartoon-stylegan-1.gif?raw=1' width = '700' >
+    <img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/dd99384b-27e7-4573-a9f9-e9c1c182c16e'>
 </p>
 
 ## 다양한 통화의 환율을 비교 해보기
