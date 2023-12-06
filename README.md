@@ -1,62 +1,60 @@
-# 외환 환율 웹 대시보드 만들기
-
-* 분석할 데이터를 준비한다.
-
-* 주피터 노트북으로 데이터를 분석한다. ( 가상환경 맞춰서 )
-
-* 필요에 의해서 머신러닝을 수행할 수도 있다.
-
-* 분석이 완료되면, 대시보드 앱으로 개발한다.
-
-* 대시보드 앱은 vscode로 개발한다.
-
-* 로컬에서 테스트해서 이상이 없으면 클라우드 서버에 배포한다. (24시간 서비스, 배포 자동화)
 # Streamlit Tutorials
 
-#### Install
+<p align="center">📚 Skills</p>
+<p align="center">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=plastic&logo=Python&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=plastic&logo=Streamlit&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Jupyter-F37626?style=plastic&logo=jupyter&logoColor=white"/>    
+</p>
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](http://13.124.75.153:8501/)
+
+## Dataset
+
+The data has been collected from kaggle Forex Exchange Rates Since 2004. More about the dataset are in this [link](https://www.kaggle.com/datasets/asaniczka/forex-exchange-rate-since-2004-updated-daily)
+</br></br>
+
+## Install
 
 ```
 pip install streamlit
 ```
 
-#### Run
+## Running Locally
 
 ```
-cd [directory]
+git clone https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate.git 
+cd YH-semi_final-forex-exchange-rate
+
 streamlit run app.py 
-# http://0.0.0.0:[your port]
 ```
 
-## Home 
+## - 💸 Home 
 
+```python
+import streamlit as st
 ```
 
-# install
-pip install yfinance fbprophet plotly
+<p><img src= 'https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/ded64849-6c26-4e15-8af4-ee528b551f88', width='800'></p>
 
+## - 💸 EDA (Exploratory Data Analysis) 
+
+```python
+import streamlit as st
+import pandas as pd
+from datetime import datetime
+import matplotlib.pyplot as plt
+from matplotlib.dates import MonthLocator, DateFormatter
 ```
 
-<p align="center">
-    <img src='asset/finance.gif?raw=1' width = '900' >
-</p>
+<p><img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/dd99384b-27e7-4573-a9f9-e9c1c182c16e', width='800'></p>
 
-## EDA (Exploratory Data Analysis)
+## - 💸 Compare exchange rates for different currencies
 
+```python
+import streamlit as st
+import pandas as pd
+from datetime import datetime
 ```
 
-# install
-pip install bokeh ftfy regex tqdm gdown
-
-```
-
-<p align="center">
-    <img src='asset/cartoon-stylegan-1.gif?raw=1' width = '700' >
-</p>
-
-## 다양한 통화의 환율을 비교 해보기
-
-```
-
-```
-
-<p align='center'><img src='asset/vqgan.gif?raw=1' width = '1100' ></p>
+<p><img src='https://github.com/Yeomdongsu/YH-semi_final-forex-exchange-rate/assets/117874997/26491a9c-c8b4-4e5b-adf6-5c37c10a1276', width='800'></p>
